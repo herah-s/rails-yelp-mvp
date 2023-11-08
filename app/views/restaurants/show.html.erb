@@ -1,0 +1,21 @@
+<h1>Details for <%= @restaurant.name %></h1>
+
+<div class='my-4'>
+  <p><%= @restaurant.address %></p>
+  <p><%= @restaurant.phone_number %></p>
+  <p><%= @restaurant.category %></p>
+</div>
+
+<%= link_to 'Leave a review', new_restaurant_review_path(@restaurant), class: "my-2 btn btn-secondary"  %>
+
+<% if @restaurant.reviews.count >= 1 %>
+<h2>All Reviews</h2>
+<ul>
+  <% @restaurant.reviews.each do |review| %>
+    <li>
+      <%= review.rating %>
+      <%= review.content %>
+    </li>
+    <% end %>
+</ul>
+<% end %>
