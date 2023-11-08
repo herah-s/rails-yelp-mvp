@@ -6,7 +6,13 @@
   <p><%= @restaurant.category %></p>
 </div>
 
-<%= link_to 'Leave a review', new_restaurant_review_path(@restaurant), class: "my-2 btn btn-secondary"  %>
+<h1>Leave a Review</h1>
+
+<%= simple_form_for [@restaurant, @review] do |f| %>
+<%= f.input :content %>
+<%= f.input :rating %>
+<%= f.submit %>
+<% end %>
 
 <% if @restaurant.reviews.count >= 1 %>
 <h2>All Reviews</h2>
