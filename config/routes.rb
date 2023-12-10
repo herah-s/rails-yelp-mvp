@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   # A visitor can add a new review to a restaurant
   # GET "restaurants/38/reviews/new"
   # POST "restaurants/38/reviews"
+  root to: 'restaurants#index'
 
   resources :restaurants, only: [:index, :show, :new, :create] do
     resources :reviews, only: [:create]
