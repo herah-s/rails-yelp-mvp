@@ -1,5 +1,5 @@
 class Review < ApplicationRecord
-  self.table_name = "yelp_review"
+  self.table_name = "yelp_reviews"
   belongs_to :restaurant, foreign_key: "yelp_restaurant_id"
 
   validates :content, presence: true
