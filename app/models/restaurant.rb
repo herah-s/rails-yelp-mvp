@@ -1,5 +1,6 @@
 class Restaurant < ApplicationRecord
-  has_many :reviews, dependent: :destroy
+  self.table_name = "yelp_restaurant"
+  has_many :reviews, dependent: :destroy, foreign_key: "yelp_restaurant_id"
 
   CATEGORIES = ["chinese", "italian", "japanese", "french", "belgian"]
 
